@@ -65,7 +65,7 @@ LanguageBase <- R6::R6Class("LanguageBase",
                     logger$info("received: ", header)
 
                     if (!startsWith(header, "Content")) {
-                        stop("Unexpected non-empty line")
+                        warning("Unexpected non-empty line")
                     }
                     matches <- stringi::stri_match_first_regex(header, "Content-Length: ([0-9]+)")
                     if (!is.na(matches[2])) {
